@@ -1,11 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 25 12:17:32 2024
-
-@author: QBSM
-"""
-
-
+# version 2024-01-25-1700
 import time
 try:
     from ika.magnetic_stirrer import MagneticStirrer
