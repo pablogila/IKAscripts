@@ -1,2 +1,1 @@
-# IKAscripts
-Custom scripts for the magnetic stirrer IKA 5 RCT control
+version 2024-01-25-1700
