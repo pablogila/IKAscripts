@@ -1,4 +1,4 @@
-# version 2024-01-25-1700
+# version 2024-01-26-1500
 import time
 try:
     from ika.magnetic_stirrer import MagneticStirrer
@@ -15,7 +15,7 @@ def get_current_date():
 
 def get_sensor_T():
     port = 'COM4'
-    plate = MagneticStirrer(device_port = port)
+    plate = MagneticStirrer(device_port=port)
     return float(plate.read_actual_external_sensor_value().split()[0])
 
 
@@ -41,7 +41,7 @@ def is_close_to_target_T(target_T, increasing = None, sensibility = 0.2):
 def set_to_T_and_wait(target_T, wait_time = 120):
 
     port = 'COM4'
-    plate = MagneticStirrer(device_port = port)
+    plate = MagneticStirrer(device_port=port)
 
     message_init = 'Aiming to ' + str(target_T) + 'ºC...'
     print(message_init)
@@ -75,7 +75,7 @@ def heat_ramp(total_time = 60, start_T = 25, final_T = 45, increasing = True, ke
     
     date = get_current_date()
     start_message_1 = 'Starting new heat ramp on ' + date
-    start_message_2 = 'total_time=' + str(total_time) + ', start_T=' + str(start_T) + ', final_T=' + str(final_T) + ', increasing=' + increasing + ', delta_T=' + str(delta_T)
+    start_message_2 = 'total_time=' + str(total_time) + ', start_T=' + str(start_T) + ', final_T=' + str(final_T) + ', increasing=' + str(increasing) + ', delta_T=' + str(delta_T)
     
     print(start_message_1)
     print(start_message_2)
@@ -92,7 +92,7 @@ def heat_ramp(total_time = 60, start_T = 25, final_T = 45, increasing = True, ke
         delta_T = - delta_T
 
     port = 'COM4'
-    plate = MagneticStirrer(device_port = port)
+    plate = MagneticStirrer(device_port=port)
     plate.target_stir_rate = 600
     plate.target_temperature = int(target_T)
     plate.start_heating()
@@ -140,5 +140,5 @@ def heat_ramp(total_time = 60, start_T = 25, final_T = 45, increasing = True, ke
 
 
 if __name__ == "__main__":
-    heat_ramp(120, 70, 130)
+    heat_ramp(15, 50, 60)
 
